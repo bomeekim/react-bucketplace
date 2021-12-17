@@ -6,6 +6,12 @@ import './App.css';
 
 // TODO Theme
 const theme = createTheme({
+  spacing: 4,
+  palette: {
+    primary: {
+      main: '#35C5F0',
+    }
+  }
 });
 
 function App() {
