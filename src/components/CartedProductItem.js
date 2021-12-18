@@ -9,7 +9,6 @@ import {
 import CloseIcon from '@mui/icons-material/Close';
 
 function CartedProductItem({ name, delivery, imageUrl }) {
-  console.log(name, delivery, imageUrl);
   return (
     <List sx={{ width: '100%' }}>
       <ListItem

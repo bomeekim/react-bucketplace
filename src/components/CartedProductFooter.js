@@ -1,6 +1,6 @@
 import { Box, Button, Typography } from '@mui/material';
 
-function CartedProductFooter({ totalPrice }) {
+function CartedProductFooter({ productPrice }) {
   return (
     <Box
       sx={{ display: 'flex',
@@ -14,7 +14,7 @@ function CartedProductFooter({ totalPrice }) {
         <Button>바로 구매</Button>
       </Box>
       {/*TODO 세자리수 콤마*/}
-      <Typography>{totalPrice}원</Typography>
+      <Typography>{productPrice}원</Typography>
     </Box>
   )
 }

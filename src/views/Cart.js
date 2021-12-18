@@ -1,13 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Grid } from '@mui/material';
 import CartHeader from '../components/CartHeader';
 import CartBody from '../components/CartBody';
 import CartFooter from '../components/CartFooter';
 import CART_API from '../api/cart';
+import {setCartList} from '../redux/modules/cart';
 
 function Cart() {
-  const [ cartList, setCartList ] = useState();
+  const selectedAll = useSelector(state => state.cart.selectedAll);
+  const cartList = useSelector(state => state.cart.cartList);
+  const dispatch = useDispatch();
+  const onSetCartList = (cartList) => dispatch(setCartList(cartList));
 
+  // 카트 목록 조회 API
   const getCartList = async () => {
     try {
       const { status, data: { carts, description } } = await CART_API.LIST();
@@ -15,7 +21,7 @@ function Cart() {
       if (status === 200 && carts.length > 0 && description) {
         const deliveryMethodText = description['delivery.method'];
 
-        setCartList(carts.map(obj => {
+        onSetCartList(carts.map(obj => {
           const methodText = deliveryMethodText[obj.product.delivery.method];
           const isBucketPlaceShip = obj.product.delivery.method === 3;
 
@@ -28,7 +34,8 @@ function Cart() {
                 method: methodText,
                 title: isBucketPlaceShip ? methodText : `${obj.product.seller.nickname} 배송`
               }
-            }
+            },
+            checked: selectedAll,
           }
         }));
       }
@@ -48,7 +55,8 @@ function Cart() {
         <CartHeader />
       </Grid>
       <Grid item xs={8} md={7} lg={8}>
-        {cartList && cartList.map(obj => <CartBody cartContent={obj} />)}
+        {cartList && cartList.map((obj, index) =>
+          <CartBody cartContent={obj} key={index} />)}
       </Grid>
       <Grid item xs={12} md={5} lg={4}>
         <CartFooter />

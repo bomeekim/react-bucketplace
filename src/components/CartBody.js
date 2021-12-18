@@ -2,10 +2,7 @@ import { Card, CardHeader, CardContent, CardActions, Typography } from '@mui/mat
 import CartContentBody from './CartContentBody';
 
 function CartBody({ cartContent }) {
-  const {
-    options,
-    product: { delivery, ...rest }
-  } = cartContent;
+  const { product: { delivery } } = cartContent;
 
   return (
     <Card variant="outlined">
@@ -16,7 +13,7 @@ function CartBody({ cartContent }) {
         style={{ textAlign: 'center' }}
       />
       <CardContent>
-        <CartContentBody product={{ options, delivery, ...rest }} />
+        <CartContentBody props={cartContent} />
       </CardContent>
       <CardActions
         sx={{ borderTop: 1, justifyContent: 'center' }}

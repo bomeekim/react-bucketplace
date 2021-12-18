@@ -1,20 +1,40 @@
+import { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { Grid, Checkbox } from '@mui/material';
 import CartedProductItem from './CartedProductItem';
 import CartedProductOption from './CartedProductOption';
 import CartedProductFooter from './CartedProductFooter';
+import { updateCartList } from '../redux/modules/cart';
+import { calcSelectedProductPrice } from '../utils/common';
 
-function CartContentBody({ product }) {
-  const { options, brand, imageUrl, name, delivery } = product;
-  const initialValue = 0;
-  const totalPrice = product.options.reduce(
-    (acc, cur) => acc + (cur.cost * cur.count)
-  , initialValue);
-  console.log(totalPrice);
+function CartContentBody({ props }) {
+  const {
+    checked,
+    id,
+    options,
+    product: { brand, imageUrl, name, delivery }
+  } = props;
+  const [productPrice, setProductPrice] = useState();
+  const dispatch = useDispatch();
+  const onUpdateCartList = (id, updated) => dispatch(updateCartList(id, updated));
+
+  const handleChange = () => {
+    // 체크박스 클릭 시 cartList를 업데이트한다.
+    onUpdateCartList(id, { checked: !checked });
+  };
+
+  useEffect(() => {
+    // 상품의 옵션 포함 가격
+    setProductPrice(calcSelectedProductPrice(props));
+  }, []);
 
   return (
     <Grid container spacing={2}>
       <Grid item xs={1}>
-        <Checkbox defaultChecked />
+        <Checkbox
+          checked={checked}
+          onChange={handleChange}
+        />
       </Grid>
       <Grid item xs={11}>
         {/*상품 정보*/}
@@ -26,9 +46,10 @@ function CartContentBody({ product }) {
           imageUrl={imageUrl}
         />
         {/*상품 옵션 정보*/}
-        {options && options.map(obj => <CartedProductOption option={obj} />)}
-        {/*상품 총 금액*/}
-        <CartedProductFooter totalPrice={totalPrice} />
+        {options && options.map((obj, index) =>
+          <CartedProductOption option={obj} key={index} />)}
+        {/*상품 금액*/}
+        <CartedProductFooter productPrice={productPrice} />
       </Grid>
     </Grid>
   )
