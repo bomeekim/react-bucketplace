@@ -27,7 +27,7 @@ function App() {
             overflow: 'auto',
           }}
         >
-          <Container maxWidth="xl" sx={{ mt: 10, mb: 4 }}>
+          <Container maxWidth="xl" sx={{ mt: 20, mb: 4 }}>
             <Cart />
           </Container>
         </Box>
