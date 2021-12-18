@@ -23,7 +23,7 @@ function Header() {
 
   return (
     <AppBar
-      color="transparent"
+      color="white"
       position="absolute"
       sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', px: 15, py: 5, boxShadow: 0 }}
     >

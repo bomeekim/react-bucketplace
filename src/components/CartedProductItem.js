@@ -8,7 +8,8 @@ import {
 } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 
-function CartedProductItem() {
+function CartedProductItem({ name, delivery, imageUrl }) {
+  console.log(name, delivery, imageUrl);
   return (
     <List sx={{ width: '100%' }}>
       <ListItem
@@ -20,11 +21,11 @@ function CartedProductItem() {
         }
       >
         <ListItemAvatar>
-          <Avatar variant="square" alt="Product Image" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/163696601492151872.jpg?w=360&h=360&c=c&webp=1" />
+          <Avatar variant="square" alt="Product Image" src={imageUrl} />
         </ListItemAvatar>
         <ListItemText
-          primary="상품 이름"
-          secondary="배송 정보"
+          primary={name}
+          secondary={`${delivery.fee} | ${delivery.method}`}
         />
       </ListItem>
     </List>

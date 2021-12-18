@@ -9,7 +9,7 @@ import {
 import CloseIcon from '@mui/icons-material/Close';
 import CartedProductOptionAction from './CartedProductOptionAction';
 
-function CartedProductOption() {
+function CartedProductOption({ option: { explain, ...rest } }) {
   return (
     // TODO theme 에 bgColor 추가
     <List sx={{ width: '100%', bgcolor: '#F7F9FA' }}>
@@ -22,8 +22,8 @@ function CartedProductOption() {
         }
         sx={{ display: 'flex', flexDirection: 'column' }}
       >
-        <ListItemText primary="옵션 제목"/>
-        <CartedProductOptionAction />
+        <ListItemText primary={explain}/>
+        <CartedProductOptionAction option={{...rest}} />
       </ListItem>
     </List>
   )
