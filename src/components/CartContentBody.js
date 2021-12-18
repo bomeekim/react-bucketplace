@@ -26,7 +26,7 @@ function CartContentBody({ props }) {
   useEffect(() => {
     // 상품의 옵션 포함 가격
     setProductPrice(calcSelectedProductPrice(props));
-  }, []);
+  }, [options]);
 
   return (
     <Grid container spacing={2}>
