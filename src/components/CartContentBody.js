@@ -47,7 +47,7 @@ function CartContentBody({ props }) {
         />
         {/*상품 옵션 정보*/}
         {options && options.map((obj, index) =>
-          <CartedProductOption option={obj} key={index} />)}
+          <CartedProductOption productId={id} option={obj} key={index} />)}
         {/*상품 금액*/}
         <CartedProductFooter productPrice={productPrice} />
       </Grid>

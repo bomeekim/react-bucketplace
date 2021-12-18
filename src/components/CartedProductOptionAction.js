@@ -5,9 +5,14 @@ import {
   MenuItem,
   Typography,
 } from '@mui/material';
+import { useDispatch } from 'react-redux';
+import { changeOption } from '../redux/modules/cart';
 
-function CartedProductOptionAction({ option: { count, cost, stock }}) {
+function CartedProductOptionAction({ option }) {
+  const { count, cost, stock } = option
   const [quantity, setQuantity] = useState(count);
+  const dispatch = useDispatch();
+  const onChangeOption = (option) => dispatch(changeOption(option));
 
   const handleChange = (event) => {
     const quantity = event.target.value;
@@ -15,8 +20,14 @@ function CartedProductOptionAction({ option: { count, cost, stock }}) {
     if (quantity > stock) {
       alert('선택한 개수보다 재고가 모자랍니다.');
     } else {
-      setQuantity(event.target.value);
-      // TODO 변경된 정보 업데이트 (상위로 전달)
+      // state 를 변경한다.
+      setQuantity(quantity);
+
+      // reducer를 통해 option 값을 변경한다.
+      onChangeOption({
+        ...option,
+        count: quantity,
+      });
     }
   };
 
