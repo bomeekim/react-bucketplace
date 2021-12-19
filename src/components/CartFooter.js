@@ -2,6 +2,22 @@ import {useEffect, useState} from 'react';
 import { useSelector } from 'react-redux';
 import { Box, Card, CardContent, CardActions, Typography, Button } from '@mui/material';
 import { calcSelectedProductPrice } from '../utils/common';
+import { styled } from '@mui/material/styles';
+
+const DefaultTypography = styled(Typography)(() => ({
+  fontWeight: 400,
+  fontSize: 16,
+  lineHeight: '24px',
+  letterSpacing: '-0.3px',
+}));
+
+const BoldTypography = styled(Typography)(() => ({
+  fontWeight: 700,
+  fontSize: 16,
+  lineHeight: '20px',
+  letterSpacing: '-0.3px',
+}));
+
 
 function CartFooter({ clickFunc }) {
   const cartList = useSelector(state => state.cart.cartList);
@@ -31,26 +47,42 @@ function CartFooter({ clickFunc }) {
               borderWidth: 1,
               borderRadius: 1,
               pt: 18, px: 16, pb: 22,
+              mb: 20,
             }}
       >
-        <CardContent>
-          <Box  sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <Typography>총 상품금액</Typography>
-            <Typography>{totalPrice?.toLocaleString()}원</Typography>
+        <CardContent sx={{ p: 0 }}>
+          <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 12 }}>
+            <DefaultTypography>총 상품금액</DefaultTypography>
+            <BoldTypography>{totalPrice?.toLocaleString()}원</BoldTypography>
           </Box>
-          <Box  sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <Typography>총 배송비</Typography>
-            <Typography>{totalDeliveryFee?.toLocaleString()}원</Typography>
+          <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 26 }}>
+            <DefaultTypography>총 배송비</DefaultTypography>
+            <BoldTypography>{totalDeliveryFee?.toLocaleString()}원</BoldTypography>
           </Box>
         </CardContent>
-        <CardActions sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <Typography>결제금액</Typography>
-          <Typography>{(totalPrice + totalDeliveryFee)?.toLocaleString()}원</Typography>
+        <CardActions sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', p: 0 }}>
+          <BoldTypography>결제금액</BoldTypography>
+          <Typography
+            fontWeight={700}
+            fontSize={24}
+            lineHeight="32px"
+            letterSpacing="-0.3px"
+          >
+            {(totalPrice + totalDeliveryFee)?.toLocaleString()}원
+          </Typography>
         </CardActions>
       </Card>
       <Button
         variant="contained"
-        sx={{ boxShadow: 0 }}
+        sx={{ boxShadow: 0,
+              height: 50,
+              borderRadius: 1,
+              py: 15,
+              color: '#fff',
+              fontWeight: 700,
+              fontSize: 16,
+              lineHeight: '20px',
+              letterSpacing: '-0.3px' }}
         onClick={() => clickFunc(filteredCartList)}
         disabled={filteredCartList.length === 0}
       >
