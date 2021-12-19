@@ -5,8 +5,10 @@ import Cart from './views/Cart';
 import CssBaseline from '@mui/material/CssBaseline';
 import './App.css';
 
-// TODO Theme
 const theme = createTheme({
+  typography: {
+    fontFamily: ('Spoqa Han Sans'),
+  },
   spacing: 1,
   palette: {
     primary: {
