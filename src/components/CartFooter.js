@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { Box, Card, CardContent, CardActions, Typography, Button } from '@mui/material';
 import { calcSelectedProductPrice } from '../utils/common';
 
-function CartFooter() {
+function CartFooter({ clickFunc }) {
   const cartList = useSelector(state => state.cart.cartList);
   const [totalPrice, setTotalPrice] = useState();
   const [totalDeliveryFee, setTotalDeliveryFee] = useState();
@@ -41,7 +41,14 @@ function CartFooter() {
           <Typography>{totalPrice + totalDeliveryFee}원</Typography>
         </CardActions>
       </Card>
-      <Button variant="contained" sx={{ boxShadow: 0 }}>2개의 상품 구매하기</Button>
+      <Button
+        variant="contained"
+        sx={{ boxShadow: 0 }}
+        onClick={() => clickFunc(filteredCartList)}
+        disabled={filteredCartList.length === 0}
+      >
+        {filteredCartList.length}개의 상품 구매하기
+      </Button>
     </Box>
   )
 }
