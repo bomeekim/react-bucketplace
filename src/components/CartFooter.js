@@ -29,16 +29,16 @@ function CartFooter({ clickFunc }) {
         <CardContent>
           <Box  sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <Typography>총 상품금액</Typography>
-            <Typography>{totalPrice}원</Typography>
+            <Typography>{totalPrice?.toLocaleString()}원</Typography>
           </Box>
           <Box  sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <Typography>총 배송비</Typography>
-            <Typography>{totalDeliveryFee}원</Typography>
+            <Typography>{totalDeliveryFee?.toLocaleString()}원</Typography>
           </Box>
         </CardContent>
         <CardActions sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <Typography>결제금액</Typography>
-          <Typography>{totalPrice + totalDeliveryFee}원</Typography>
+          <Typography>{(totalPrice + totalDeliveryFee)?.toLocaleString()}원</Typography>
         </CardActions>
       </Card>
       <Button

@@ -128,8 +128,7 @@ function CartedProductOptionAction({ option }) {
           }
         </Select>
       }
-      {/*TODO 세자리수 필터*/}
-      <Typography>{count * cost}원</Typography>
+      <Typography>{(count * cost)?.toLocaleString()}원</Typography>
     </FormControl>
   )
 }

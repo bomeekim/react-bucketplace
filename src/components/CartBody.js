@@ -19,8 +19,7 @@ function CartBody({ cartContent }) {
         sx={{ borderTop: 1, justifyContent: 'center' }}
       >
         <Typography sx={{ fontSize: 14 }} align="center">
-          {/*TODO 세 자리 수 콤마*/}
-          배송비 {delivery.fee === 0 ? '무료' : `${delivery.fee}원`}
+          배송비 {delivery.fee === 0 ? '무료' : `${delivery.fee?.toLocaleString()}원`}
         </Typography>
       </CardActions>
     </Card>

@@ -13,8 +13,7 @@ function CartedProductFooter({ productPrice }) {
         <Button>옵션변경</Button>
         <Button>바로 구매</Button>
       </Box>
-      {/*TODO 세자리수 콤마*/}
-      <Typography>{productPrice}원</Typography>
+      <Typography>{productPrice?.toLocaleString()}원</Typography>
     </Box>
   )
 }
