@@ -94,7 +94,7 @@ function Cart() {
         {cartList && cartList.map((obj, index) =>
           <CartBody cartContent={obj} key={index} />)}
       </Grid>
-      <Grid item xs={12} md={5} lg={4}>
+      <Grid className="cart-footer-wrapper" item xs={12} md={5} lg={4}>
         <CartFooter clickFunc={handleOrderButtonClick} />
       </Grid>
 

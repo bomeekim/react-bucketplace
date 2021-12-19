@@ -19,3 +19,10 @@
 .MuiInputAdornment-root .MuiSvgIcon-root {
   color: #2F3438;
 }
+
+.cart-footer-wrapper {
+  position: fixed;
+  right: 28px;
+  top: 152px;
+  width: inherit;
+}
