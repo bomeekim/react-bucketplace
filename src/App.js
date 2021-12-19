@@ -30,7 +30,7 @@ function App() {
               height: '100vh',
               overflow: 'auto',
               position: 'relative',
-              mt: 100,
+              mt: 90,
               mx: 60,
             }}
           >

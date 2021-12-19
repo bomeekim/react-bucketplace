@@ -1,4 +1,21 @@
+/* 이미지 로고 */
+.img-logo {
+  margin-right: 50px;
+}
+
 /* 체크박스 */
 .MuiCheckbox-root .MuiSvgIcon-root {
   font-size: 20px;
+}
+
+/* Input 박스 */
+.MuiFormControl-root .MuiOutlinedInput-root {
+  width: 80px;
+  background-color: #FFFFFF;
+}
+
+/* 아이콘 */
+.MuiListItemSecondaryAction-root .MuiSvgIcon-root,
+.MuiInputAdornment-root .MuiSvgIcon-root {
+  color: #2F3438;
 }

@@ -19,7 +19,7 @@ function CartedProductItem({ name, delivery, imageUrl }) {
             aria-level="delete"
             sx={{ p: 0 }}
           >
-            <CloseIcon sx={{ color: '#2F3438' }} />
+            <CloseIcon />
           </IconButton>
         }
         sx={{ '& .MuiListItemSecondaryAction-root': { top: 10 }, p: 0 }}

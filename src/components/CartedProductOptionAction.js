@@ -106,11 +106,12 @@ function CartedProductOptionAction({ option }) {
       sx={{ display: 'flex',
             flexDirection: 'row',
             justifyContent: 'space-between',
-            alignItems: 'center'
-          }}
+            alignItems: 'center',
+            minWidth: '80px' }}
     >
       {showInput &&
         <OutlinedInput
+          size="small"
           inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
           value={input}
           onKeyDown={handleInputKeyDown}
@@ -120,6 +121,7 @@ function CartedProductOptionAction({ option }) {
         />}
       {!showInput &&
         <Select
+          size="small"
           value={count}
           onChange={handleSelectChange}
         >
