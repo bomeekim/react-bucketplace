@@ -22,14 +22,12 @@ function App() {
       <ThemeProvider theme={theme}>
         <Box sx={{ backgroundColor: '#F7F9FA' }}>
           <Header />
-          {/*TODO 스크롤 고정 이슈*/}
           <Box
             component="main"
             sx={{
               flexGrow: 1,
-              height: '100vh',
+              height: '100%',
               overflow: 'auto',
-              position: 'relative',
               mt: 90,
               mx: 60,
             }}

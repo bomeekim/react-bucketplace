@@ -34,7 +34,7 @@ function Header() {
   return (
     <AppBar
       color="white"
-      position="absolute"
+      position="fixed"
       sx={{ display: 'flex',
             flexDirection: 'row',
             justifyContent: 'space-between',
