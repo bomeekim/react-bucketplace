@@ -86,7 +86,7 @@ function Cart() {
   }, []);
 
   return (
-    <Grid container spacing={3}>
+    <Grid container spacing={20}>
       <Grid item xs={8}>
         <CartHeader />
       </Grid>

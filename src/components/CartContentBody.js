@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { Grid, Checkbox } from '@mui/material';
+import { Grid, Checkbox, Box } from '@mui/material';
 import CartedProductItem from './CartedProductItem';
 import CartedProductOption from './CartedProductOption';
 import CartedProductFooter from './CartedProductFooter';
@@ -29,20 +29,21 @@ function CartContentBody({ props }) {
   }, [options]);
 
   return (
-    <Grid container spacing={2}>
-      <Grid item xs={1}>
+    <Grid container spacing={0}>
+      <Box sx={{ mr: 12, display: 'flex', alignItems: 'flex-start' }}>
         <Checkbox
           checked={checked}
           onChange={handleChange}
+          sx={{ p: 0 }}
         />
-      </Grid>
-      <Grid item xs={11}>
+      </Box>
+      <Box sx={{ width: 'calc(100% - 36px)', display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
         {/*상품 정보*/}
         <CartedProductItem
           name={`[${brand.name}] ${name}`}
           delivery={{ fee: `${delivery.fee === 0 ? '무료배송' : `배송비 ${delivery.fee}원`}`,
-                      method: `${delivery.method}`
-                    }}
+            method: `${delivery.method}`
+          }}
           imageUrl={imageUrl}
         />
         {/*상품 옵션 정보*/}
@@ -50,7 +51,7 @@ function CartContentBody({ props }) {
           <CartedProductOption productId={id} option={obj} key={index} />)}
         {/*상품 금액*/}
         <CartedProductFooter productPrice={productPrice} />
-      </Grid>
+      </Box>
     </Grid>
   )
 }

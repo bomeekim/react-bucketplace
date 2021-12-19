@@ -25,7 +25,14 @@ function CartFooter({ clickFunc }) {
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-      <Card variant="outlined">
+      <Card
+        variant="outlined"
+        sx={{ borderColor: '#EAEDEF',
+              borderWidth: 1,
+              borderRadius: 1,
+              pt: 18, px: 16, pb: 22,
+            }}
+      >
         <CardContent>
           <Box  sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <Typography>총 상품금액</Typography>

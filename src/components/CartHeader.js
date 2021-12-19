@@ -32,8 +32,7 @@ function CartHeader() {
             justifyContent: 'space-between',
             alignItems: 'center',
             mt: 30,
-            mx: 16,
-            mb: 20 }}
+            mx: 16 }}
     >
       <FormGroup>
         <FormControlLabel
@@ -43,7 +42,7 @@ function CartHeader() {
             <Checkbox
               checked={checked}
               onChange={handleChange}
-              sx={{ '& .MuiSvgIcon-root': { fontSize: 20 }, p: 4 }}
+              sx={{ p: 4 }}
             />
           }
           label="모두선택"

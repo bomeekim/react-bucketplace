@@ -128,7 +128,14 @@ function CartedProductOptionAction({ option }) {
           }
         </Select>
       }
-      <Typography>{(count * cost)?.toLocaleString()}원</Typography>
+      <Typography
+        fontWeight={700}
+        fontSize={16}
+        lineHeight="20px"
+        letterSpacing="-0.3px"
+      >
+        {(count * cost)?.toLocaleString()}원
+      </Typography>
     </FormControl>
   )
 }

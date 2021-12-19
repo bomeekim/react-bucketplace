@@ -3,6 +3,7 @@ import { Box, Container } from '@mui/material';
 import Header from './layouts/Header';
 import Cart from './views/Cart';
 import CssBaseline from '@mui/material/CssBaseline';
+import './App.css';
 
 // TODO Theme
 const theme = createTheme({
