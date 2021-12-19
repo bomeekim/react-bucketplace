@@ -1,7 +1,15 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setSelectedAll } from '../redux/modules/cart';
-import { Box, Button, Checkbox, FormGroup, FormControlLabel  } from '@mui/material';
+import { Box, Button, Checkbox, FormGroup, FormControlLabel, Divider } from '@mui/material';
+import { styled } from '@mui/material/styles';
+
+const CartHeaderButton = styled(Button)(() => ({
+  fontSize: 12,
+  lineHeight: '16px',
+  letterSpacing: '-0.3px',
+  color: '#2F3438',
+}));
 
 function CartHeader() {
   const selectedAll = useSelector(state => state.cart.selectedAll);
@@ -19,22 +27,41 @@ function CartHeader() {
   }, [selectedAll])
 
   return (
-    <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+    <Box
+      sx={{ display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            mt: 30,
+            mx: 16,
+            mb: 20 }}
+    >
       <FormGroup>
         <FormControlLabel
+          sx={{ '& .MuiTypography-root': { fontSize: 16, fontWeight: 400, lineHeight: '20px', letterSpacing: '-0.3px' },
+                m: 0 }}
           control={
             <Checkbox
               checked={checked}
               onChange={handleChange}
+              sx={{ '& .MuiSvgIcon-root': { fontSize: 20 }, p: 4 }}
             />
           }
-          label="모두 선택"
+          label="모두선택"
         />
       </FormGroup>
-      <Box>
-        {/*TODO 버튼 사이에 파이프라인 추가*/}
-        <Button>품절 모두 삭제</Button>
-        <Button>선택삭제</Button>
+      <Box
+        sx={{ display: 'flex',
+              alignItems: 'center',
+              width: 'fit-content' }}
+      >
+        <CartHeaderButton>품절 모두 삭제</CartHeaderButton>
+        <Divider
+          orientation="vertical"
+          variant="middle"
+          flexItem
+          sx={{ height: 12, my: 10 }}
+        />
+        <CartHeaderButton>선택삭제</CartHeaderButton>
       </Box>
     </Box>
   )

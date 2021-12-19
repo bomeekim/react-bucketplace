@@ -87,7 +87,7 @@ function Cart() {
 
   return (
     <Grid container spacing={3}>
-      <Grid item xs={7}>
+      <Grid item xs={8}>
         <CartHeader />
       </Grid>
       <Grid item xs={8} md={7} lg={8}>

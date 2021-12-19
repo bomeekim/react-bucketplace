@@ -19,13 +19,20 @@ import logo from '../assets/img-logo.jpg';
 
 function Header() {
   const menuList = [ '커뮤니티', '스토어', '전문가' ];
-  const imageUrl = 'http://file3.instiz.net/data/cached_img/upload/2018/03/07/19/8944da1586aaadaa1f60c3ca27f2deeb.jpg';
+  const profileImageUrl = 'http://file3.instiz.net/data/cached_img/upload/2018/03/07/19/8944da1586aaadaa1f60c3ca27f2deeb.jpg';
 
   return (
     <AppBar
       color="white"
       position="absolute"
-      sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', px: 15, py: 5, boxShadow: 0 }}
+      sx={{ display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            px: 60,
+            pt: 25,
+            py: 26,
+            pb: 26,
+            boxShadow: 0 }}
     >
       <Box sx={{ display: 'flex', alignItems: 'center' }}>
         <img src={logo} width="74px" height="40px" />
@@ -64,8 +71,8 @@ function Header() {
         <IconButton aria-label="notification">
           <NotificationsOutlinedIcon />
         </IconButton>
-        <Avatar alt="profile" src={imageUrl} />
-        <Button variant="contained" sx={{ boxShadow: 0, ml: 2 }}>글쓰기</Button>
+        <Avatar alt="profile" src={profileImageUrl} />
+        <Button variant="contained" sx={{ boxShadow: 0, ml: 4 }}>글쓰기</Button>
       </Box>
     </AppBar>
   )
