@@ -1,4 +1,4 @@
-# homework-bucketplace
+# react-bucketplace
 
 ## 실행 방법
 ### 프로젝트 빌드 및 실행
